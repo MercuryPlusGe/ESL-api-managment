@@ -84,12 +84,12 @@ makeGetRequest(
 
     async (req_response) => {
 
-        console.log(req_response.data)
+        console.log("Publickey:", req_response.data, '\n');
 
         const publicKey = `-----BEGIN PUBLIC KEY-----\n${req_response.data}\n-----END PUBLIC KEY-----`;
         const encryptedPassword = encryptPassword(publicKey, password);
 
-        console.log('Encrypted Password:', encryptedPassword);
+        console.log('Encrypted Password:', encryptedPassword, '\n');
 
         const postData = JSON.stringify(
             {
@@ -99,7 +99,7 @@ makeGetRequest(
             }
         );
 
-        console.log(JSON.parse(postData))
+        console.log("Requst body:", JSON.parse(postData), '\n')
 
         const options = {
 
